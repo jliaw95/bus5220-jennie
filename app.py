@@ -45,28 +45,34 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
+        confirm_password = request.form['confirm_password']
+        
+        # Check if the passwords match
+        if password != confirm_password:
+            flash('Passwords do not match. Please try again.')
+            return redirect(url_for('register'))
+        
         # Check if the username already exists
         existing_user = users_collection.find_one({'username': username})
         if existing_user:
             flash('Username already exists. Please choose a different username.')
             return redirect(url_for('register'))
-
+        
         # Hash the password before storing it
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
-
+        
         # Create a new user document
         new_user = {
             'username': username,
             'password': hashed_password
         }
-
+        
         # Insert the new user into the users collection
         users_collection.insert_one(new_user)
-
+        
         flash('Registration successful. Please log in.')
         return redirect(url_for('login'))
-
+    
     return render_template('register.html')
 
 @app.route('/terms', methods=['GET', 'POST'])
