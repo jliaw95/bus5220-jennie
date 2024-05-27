@@ -1,0 +1,176 @@
+/* New Styles for Landing Page */
+
+/* General */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://images.pexels.com/photos/5699475/pexels-photo-5699475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    margin: 0 0 20px; /* Center the logo */
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #1d72b8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-image: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    border-radius: 8px; 
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1d72b8;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #155a8a;
+}
+
+/* Key Benefits */
+.key-benefits {
+    padding: 50px 20px;
+}
+
+.key-benefits h2 {
+    text-align: center;
+    font-size: 2.5em; 
+    color: #1d72b8; 
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif; 
+    /* text-transform: uppercase; */
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.benefit {
+    max-width: 300px;
+}
+
+.benefit h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.benefit p {
+    color: #666;
+    line-height:150%;
+    margin-top: 10px;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 20px 20px;
+}
+
+.pricing h2 {
+    text-align: center;
+    font-size: 2.5em; 
+    color: #1d72b8; 
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif; 
+    /* text-transform: uppercase; */
+}
+
+.pricing-plans {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.plan {
+    max-width: 300px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.plan h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.plan .price {
+    font-size: 2em;
+    color: #1d72b8;
+    margin: 20px 0;
+}
+
+.plan p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.plan .cta-button {
+    margin-top: 20px;
+}

@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to HR Assistant</h1>
+        <a href="{{ url_for('login') }}">Login</a>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-landing.css') }}">
+    <title>Jennie™: A.I. Powered Workforce Insights - Home</title>
+</head>
+<br>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Jennie: A.I. Powered Workforce Insights" class="logo">
+            <nav class="nav-links">
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h2>Say goodbye to CultureAmp</h2>
+            <p>For good.</p>
+            <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
+        </section>
+
+        <section class="key-benefits">
+            <h2>Key Features</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <h3>Automated Surveys</h3>
+                    <p>Your employees have more to say than a one-to-five rating.
+                        Jennie&#8482; conducts live, real-time interviews for a context-rich dataset by default.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h3>A.I.-Powered Insights</h3>
+                    <p>Our Advanced Analytics screen survey results for potential compliance breaches,
+                        reducing turnover and risk of lengthy lawsuits and investigations.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h3>Endlessly Customisable</h3>
+                    <p>Our development team is ready to work with you to ensure
+                        Jennie&#8482; is finely tuned to your organisation's requirements, no matter what industry.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <br>
+    <div class="container">
+        <section class="pricing">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-plans">
+                <div class="plan">
+                    <h3>Basic</h3>
+                    <p class="price">$1 per user/month</p>
+                    <p>For small businesses - up to 20 users.</p>
+                    <a href="{{ url_for('register') }}" class="cta-button">Sign Up</a>
+                </div>
+                <div class="plan">
+                    <h3>Pro</h3>
+                    <p class="price">$2 per user/month</p>
+                    <p>For growing businesses - up to 200 users.</p>
+                    <a href="{{ url_for('register') }}" class="cta-button">Sign Up</a>
+                </div>
+                <div class="plan">
+                    <h3>Enterprise</h3>
+                    <p class="price">Contact Us</p>
+                    <p>Custom solutions for large organizations.</p>
+                    <a href="mailto:jlia0239@uni.sydney.edu.au" class="cta-button">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <br>
+</body>
+</html>

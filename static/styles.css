@@ -1,0 +1,210 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://images.pexels.com/photos/5699475/pexels-photo-5699475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+ol > li::marker {
+    font-weight: bold;
+}
+
+h1, h2 {
+    color: #4a4a4a;
+}
+
+a {
+    color: #1d72b8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Terms and Conditions Styles */
+.terms-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.terms-content {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.terms-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.terms-actions button {
+    margin-left: 10px;
+}
+
+/* Chatbox Styles */
+#chatbox {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.chat-message, .chat-response {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.chat-message {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e5fc;
+}
+
+.chat-response {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+/* Dashboard Styles */
+#chathistory {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.dashboard-message, .dashboard-response {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.dashboard-message {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e5fc;
+}
+
+.dashboard-response {
+    background-color: #f1f1f1;
+    border: 1px solid #e0e0e0;
+}
+
+/* Utility Classes */
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: stretch;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+textarea {
+    flex: 1;
+    padding: 12px;
+    margin: 8px 16px 16px 0;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    resize: vertical;
+}
+
+button {
+    background-color: #1d72b8;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* button:hover {
+    background-color: #155a8a;
+} */
+
+/* Login Form Styles */
+.login-form {
+    display: block;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.login-form button {
+    background-color: #1d72b8;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: #155a8a;
+}
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Chat</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Say hello to get started.</h1>
+        <div id="chatbox">
+            {% for chat in chat_history %}
+                <div class="chat-message">
+                    <strong>You:</strong> {{ chat['user_input'] }}
+                </div>
+                <div class="chat-response">
+                    <strong>Jennie:</strong> {{ chat['chatbot_response'] }}
+                </div>
+            {% endfor %}
+        </div>
+        <label for="message">Your Message:</label>
+        <form id="chat-form">
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+            <input type="hidden" id="conversation-number" value="{{ request.args.get('conversation_number', 1) }}">
+            <button type="submit" id="send-button" {% if conversation_ended %}disabled{% endif %}>Send</button>
+        </form>
+        <form method="post" action="{{ url_for('new_conversation') }}">
+            <button type="submit">Start New Conversation</button>
+        </form>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <script>
+        function scrollChatboxToBottom() {
+            var chatbox = document.getElementById('chatbox');
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        // Check if the conversation has ended on page load
+        var conversationEnded = '{{ conversation_ended }}' === 'True';
+        if (conversationEnded) {
+            disableSendButton();
+        }
+
+        function disableSendButton() {
+        var sendButton = document.getElementById('send-button');
+        sendButton.disabled = true;
+        sendButton.style.backgroundColor = 'grey';
+        sendButton.style.cursor = 'not-allowed';
+        }
+
+        document.getElementById('chat-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var message = document.getElementById('message').value;
+            var conversationNumber = document.getElementById('conversation-number').value;
+
+            var userMessage = document.createElement('div');
+            userMessage.className = 'chat-message';
+            userMessage.innerHTML = '<strong>You:</strong> ' + message;
+            chatbox.appendChild(userMessage);
+
+            var loadingMessage = document.createElement('div');
+            loadingMessage.className = 'chat-response';
+            loadingMessage.innerHTML = '<strong>Jennie:</strong> <em>Typing...</em>';
+            chatbox.appendChild(loadingMessage);
+
+            scrollChatboxToBottom();
+            // Clear the input field immediately after sending the message
+            document.getElementById('message').value = '';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/chat', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        loadingMessage.innerHTML = '<strong>Jennie:</strong> ' + response.chatbot_response;
+                        document.getElementById('message').value = '';
+                        scrollChatboxToBottom();
+
+                    // Check if the conversation has ended
+                    if (response.conversation_ended) {
+                    disableSendButton();
+                    }
+
+                    } else {
+                        loadingMessage.innerHTML = '<strong>Jennie:</strong> Error occurred. Please try again.';
+                    }
+                }
+            };
+            xhr.send('message=' + encodeURIComponent(message))
+        });
+    </script>
+
+</body>
+</html>

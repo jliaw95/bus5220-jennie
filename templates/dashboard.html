@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Dashboard</title>
+    <style>
+        .assistant-response {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        .assistant-response pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .assistant-response h3,
+        .assistant-response h4 {
+            text-decoration: underline;
+        }
+        .section-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .section-heading {
+            display: flex;
+            align-items: left;
+        }
+        .warning-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            margin-top: 18px;
+        }
+        .timestamp {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="terms-container">
+    <h1>HR Dashboard</h1>
+    <div>
+    <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="755" height="480" src="https://charts.mongodb.com/charts-bus5220-dctpzja/embed/charts?id=664b9318-4203-4d09-8251-dc27f98fde3a&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+    <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="240" height="480" src="https://charts.mongodb.com/charts-bus5220-dctpzja/embed/charts?id=6651b625-0e70-4221-8296-b7fb8ef8b0f8&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+    </div>
+    <br>
+    {% if assistant_response_html %}
+    <hr class="solid">
+    <h2>A.I. Compliance Analysis</h2>
+    <p>All survey results are processed daily at midnight (AEST) to provide the following analysis.</p>
+    <p class="timestamp">Last run: {{ timestamp }} UTC</p>
+    <div class="assistant-response">
+        <div>
+            {% for section in assistant_response_html.split('<h3>') %}
+                {% if section.strip() %}
+                    <div class="section-container">
+                        <div class="section-heading">
+                            <img src="https://www.freeiconspng.com/thumbs/warning-icon-png/orange-warning-icon-3.png" alt="Warning" class="warning-icon">
+                            <h3>{{ section.split('</h3>')[0]|safe }}</h3>
+                        </div>
+                        <div>{{ section.split('</h3>')[1]|replace('[source]', '')|safe }}</div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>

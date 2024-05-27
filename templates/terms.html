@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Terms and Conditions</title>
+</head>
+<body>
+    <div class="terms-container">
+        <h1>Before we get started...</h1>
+        <p>Welcome to the employee wellbeing survey! You will be speaking to Jennie, our in-house A.I. assistant, who will ask you some questions
+            to see how you are doing. While participation in this survey is voluntary, we strongly encourage all employees to take part in this valuable feedback process. 
+            Your input is crucial for understanding and enhancing the employee experience within our organization.</p>
+        <p>Before proceeding, please read and accept the following terms and conditions:</p>
+        <div class="terms-content">
+                <ol>
+                    <li>All information provided in this survey will be treated as confidential and will be used solely for internal HR purposes to improve our workplace practices and address any concerns.</li>
+                    <li>By participating in this survey, you agree to provide accurate, honest, and constructive feedback to the best of your knowledge and ability.</li>
+                    <li>The survey results will be analyzed in aggregate form, and individual responses will remain anonymous. No personally identifiable information will be shared or disclosed to any third party.</li>
+                    <li>Please note that failure to participate in this survey may be noted and, if deemed necessary, may be brought to the attention of your manager to ensure open communication and address any underlying concerns.</li>
+                    <li>You can leave and resume a conversation at any time.</li>
+                    <li>By accepting these terms and conditions, you acknowledge that you have read, understood, and agree to abide by them throughout the survey process.</li>
+                </ol>
+        </div>
+        <p>We greatly appreciate your time and effort in completing this survey. Your feedback will contribute to our ongoing efforts to create a positive and supportive work environment for all employees.</p>
+        <div class="terms-actions">
+            <a href="{{ url_for('login') }}"><button>Go Back</button></a>
+            <a href="{{ url_for('chat') }}"><button>I Accept</button></a>
+        </div>
+    </div>
+</body>
+</html>
