@@ -9,20 +9,26 @@
 <body>
     <div class="container">
         <h1>New User Registration</h1>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
         <form method="post" action="{{ url_for('register') }}" class="login-form">
             <label for="username">Enter a username:</label>
             <input type="text" id="username" name="username" required>
+            
             <label for="password">Enter a password:</label>
             <input type="password" id="password" name="password" required>
+            
+            <label for="confirm_password">Confirm your password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div>
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
