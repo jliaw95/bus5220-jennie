@@ -127,7 +127,7 @@ def dashboard():
         timestamp = latest_result['timestamp'].strftime("%Y-%m-%d %H:%M:%S")
         assistant_response = latest_result['assistant_response']
         # Remove the 'source' strings using regular expressions
-        assistant_response_cleaned = re.sub(r'【\d+:\d+†source】', '', assistant_response)
+        assistant_response_cleaned = re.sub(r'【[^】]*】', '', assistant_response)
         # Convert the markdown text to HTML
         assistant_response_html = markdown.markdown(assistant_response_cleaned)
     else:
